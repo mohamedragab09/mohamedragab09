@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import FloatingWrapper from "./floating-wrapper";
-import ProjectCard, { Project } from "./project-card";
+import ProjectCard from "./project-card";
+import { Project } from "@/lib/types/projects";
 
 type ProjectsProps = {
   projects: Project[];

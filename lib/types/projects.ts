@@ -1,3 +1,6 @@
+import { Status } from "@/components/admin/dashboard-components/status-badge";
+
+export type ProjectStack = "full_stack" | "frontend" | "backend";
 
 export interface Project {
   id: number;
@@ -9,6 +12,8 @@ export interface Project {
   demo: string;
   createdAt: string;
   updatedAt: string;
+  stack: ProjectStack;
+  status: Status;
 }
 
 export type CreateProjectInput = Omit<

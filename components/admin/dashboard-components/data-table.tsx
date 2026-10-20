@@ -33,13 +33,14 @@ import {
 import Image from "next/image";
 import { StatusBadge } from "./status-badge";
 import { toast } from "sonner";
-import { Project } from "@/components/landing-page/ui/project-card";
 import { deleteProject } from "@/lib/services/projects";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { Project, ProjectStack } from "@/lib/types/projects";
 
 type ProjectId = Project["id"];
-type ProjectStack = "full_stack" | "frontend" | "backend";
+
 type FilterTab = "all" | ProjectStack;
+
 type FilterTabItem = {
   key: FilterTab;
   label: string;
@@ -96,7 +97,7 @@ export default function DataTable({ projects }: {projects: Project[]}) {
   const [isUpdateOpen, setIsUpdateOpen] = useState<boolean>(false);
   const [activeProject, setActiveProject] = useState<ProjectId | null>(null);
 
-  const [filter, setFilter] = useState<FilterTab>("all");
+  const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState<string>("");
   //stack
   const stack = useMemo(() => ({
@@ -126,7 +127,7 @@ export default function DataTable({ projects }: {projects: Project[]}) {
     function openUpdateSheet(project: Project) {
       setActiveProject(project.id);
       setIsUpdateOpen(true);
-  }
+    }
 
 
   async function handleDeleting(projectId: ProjectId) {

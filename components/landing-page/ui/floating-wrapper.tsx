@@ -1,24 +1,36 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, type MouseEvent, type ReactNode } from "react";
 
-export default function FloatingWrapper({ children }) {
-  const [hovered, setHovered] = useState(false);
-  const [tilt, setTilt] = useState({
+type FloatingWrapperProps = {
+  children: ReactNode;
+};
+
+type Tilt = {
+  rotateX: number;
+  rotateY: number;
+};
+
+export default function FloatingWrapper({
+  children,
+}: FloatingWrapperProps) {
+  const [hovered, setHovered] = useState<boolean>(false);
+
+  const [tilt, setTilt] = useState<Tilt>({
     rotateX: 0,
     rotateY: 0,
   });
 
-  const rectRef = useRef(null);
+  const rectRef = useRef<DOMRect | null>(null);
   const reduceMotion = useReducedMotion();
 
-  const handleMouseEnter = (e) => {
+  const handleMouseEnter = (e: MouseEvent<HTMLDivElement>) => {
     rectRef.current = e.currentTarget.getBoundingClientRect();
     setHovered(true);
   };
 
-  const handleMouseMove = (e) => {
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
     if (!rectRef.current) return;
 
     const { left, top, width, height } = rectRef.current;
