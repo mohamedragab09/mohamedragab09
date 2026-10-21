@@ -1,108 +1,48 @@
-<h1 align="center">Mohamed Ahmed Ragab</h1>
+# Mohamed Ahmed Ragab
 
-<h3 align="center">Frontend Developer | React | Next.js | UI Engineering</h3>
-
-<p align="center">
-  <a href="https://muhammad-ahmad-0.vercel.app/">Portfolio</a>
-</p>
+### Full-Stack Web Developer | React.js | Next.js | Node.js | Express.js | SQL
 
 <p align="center">
-Building scalable, performant, and user-focused web applications.
-</p>
-
----
-
-## 👨‍💻 Profile Summary
-
-Frontend Developer focused on building modern, responsive, and maintainable web applications using React and Next.js.
-
-I care about:
-- Clean code architecture
-- Performance optimization
-- User experience & UI consistency
-- Turning ideas into real products
-
----
-
-## 🧠 Technical Skills
-
-**Frontend**
-- React.js
-- Next.js
-- TypeScript
-- Tailwind CSS
-- shadcn/UI
-
-**Tools & Workflow**
-- Git & GitHub
-- Figma (UI understanding & collaboration)
-- REST APIs
-- VS Code
-
----
-
-## 🚀 What I Do Best
-
-- Building modern UI systems from scratch
-- Converting designs into pixel-perfect interfaces
-- Developing reusable components
-- Optimizing frontend performance
-- Working with API-driven applications
-
----
-
-## 📌 Featured Work
-
-### 🏥 Clinic System
-Next.js • Tailwind • Admin Dashboard  
-🔗 https://clinic-system-gray.vercel.app/
-
----
-
-### 🛒 Fashion Store
-E-commerce UI with cart & checkout flow  
-🔗 https://fashion-store-amber.vercel.app/
-
----
-
-### ☕ Cafe Menu System
-Reusable UI components + responsive design  
-🔗 https://menu-cafe-omega.vercel.app/
-
----
-
-## 📊 GitHub Overview
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=MuhammedAhmed09&show_icons=true&hide_title=true&hide_border=true" />
+  <a href="https://muhammad-ahmad-0.vercel.app/">Portfolio</a> •
+  <a href="https://github.com/MuhammedAhmed09">GitHub</a> •
+  <a href="https://www.linkedin.com/in/mohamed-ahmed-a29078307/">LinkedIn</a>
 </p>
 
 ---
 
-## 📈 Activity
+### About Me
+
+Full-Stack Web Developer passionate about building modern, scalable, and user-friendly web applications.
+
+I work across frontend and backend development, creating responsive interfaces, REST APIs, and database-driven applications.
+
+### Tech Stack
+
+- **Frontend:** React.js, Next.js, TypeScript, Shadcn UI, Tailwind CSS
+- **Backend:** Node.js, Express.js, REST APIs
+- **Database:** SQL, PostgreSQL
+- **Tools:** Git, GitHub, VS Code, Vercel, Neon
+
+### Featured Projects
+
+- **[Clinic System](https://clinic-system-gray.vercel.app/)** — Clinic management interface.
+- **[Fashion Store](https://lunaegy.com/)** — E-commerce interface.
+- **[Cafe Menu](https://menu-cafe-omega.vercel.app/)** — Responsive digital menu.
+
+### GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=MuhammedAhmed09&hide_border=true" />
+  <img src="https://github-readme-stats.vercel.app/api?username=MuhammedAhmed09&show_icons=true&hide_title=true&hide_border=true&theme=transparent" alt="GitHub Stats" />
 </p>
 
----
+### Contact
 
-## 📬 Contact
-
-- LinkedIn: https://www.linkedin.com/in/mohamed-ahmed-a29078307/
-- GitHub: https://github.com/MuhammedAhmed09  
-- Email: muhammedahmedragab@gmail.com 
+- **Email:** muhammedahmedragab@gmail.com
+- **LinkedIn:** [Mohamed Ahmed Ragab](https://www.linkedin.com/in/mohamed-ahmed-a29078307/)
+- **Portfolio:** [Visit Website](https://muhammad-ahmad-0.vercel.app/)
 
 ---
 
 <p align="center">
-Focused on building products that are simple, fast, and scalable.
+  <i>Building reliable solutions, one line of code at a time.</i>
 </p>
-
----
-
-## 🤝 Open to Opportunities
-
-I’m currently looking for Frontend Developer opportunities (Intern / Junior).
-
-Feel free to reach out if you’re hiring or collaborating on web projects.

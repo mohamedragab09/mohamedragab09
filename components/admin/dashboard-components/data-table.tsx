@@ -36,6 +36,7 @@ import { toast } from "sonner";
 import { deleteProject } from "@/lib/services/projects";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Project, ProjectStack } from "@/lib/types/projects";
+import { ProjectForm } from "./project-form";
 
 type ProjectId = Project["id"];
 
@@ -95,7 +96,7 @@ export default function DataTable({ projects }: {projects: Project[]}) {
 
   const [isCreateOpen, setIsCreateOpen] = useState<boolean>(false);
   const [isUpdateOpen, setIsUpdateOpen] = useState<boolean>(false);
-  const [activeProject, setActiveProject] = useState<ProjectId | null>(null);
+  const [activeProject, setActiveProject] = useState<number | null>(null);
 
   const [filter, setFilter] = useState("all");
   const [search, setSearch] = useState<string>("");
@@ -342,21 +343,23 @@ export default function DataTable({ projects }: {projects: Project[]}) {
         </Card>
 
         {/* ── project form (creating & updating a project) ── */}
-        {/* <ProjectForm
-          mode="update"
-          projectId={activeProject}
-          open={isUpdateOpen}
-          onOpenChange={setIsUpdateOpen}
-          onSave={(updatedProject) => {
-            setProjects(prev =>
-              prev.map(project =>
-                project.id === updatedProject.id
-                  ? updatedProject
-                  : project
-              )
-            );
-          }}
-        />
+        {activeProject !== null && (
+          <ProjectForm
+            mode="update"
+            projectId={activeProject}
+            open={isUpdateOpen}
+            onOpenChange={setIsUpdateOpen}
+            onSave={(updatedProject) => {
+              setProjects(prev =>
+                prev.map(project =>
+                  project.id === updatedProject.id
+                    ? updatedProject
+                    : project
+                )
+              );
+            }}
+          />
+        )}
 
         <ProjectForm
           mode="create"
@@ -365,7 +368,7 @@ export default function DataTable({ projects }: {projects: Project[]}) {
           onSave={(newProject) => {
             setProjects(prev => [...prev, newProject]);
           }}
-        /> */}
+        />
       </div>
     </TooltipProvider>
   );

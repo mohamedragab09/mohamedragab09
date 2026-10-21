@@ -1,10 +1,8 @@
 
-import { 
-  ApiError, 
-  ApiResponse, 
-  CreateProjectInput, 
-  Project, 
-  UpdateProjectInput 
+import type {
+  CreateProjectInput,
+  Project,
+  UpdateProjectInput,
 } from "../types/projects";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
@@ -15,83 +13,111 @@ if (!API_URL) {
 
 type ProjectId = Project["id"];
 
-async function parseResponse<T>(response: Response): Promise<T> {
-  const data: unknown = await response.json();
+export const getProjects = async () => {
+  try{
+    const response = await fetch(`${API_URL}/api/projects`);
 
-  if (!response.ok) {
-    const errorData = data as Partial<ApiError>;
-    throw new Error(errorData.message || "Request failed");
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Fetch Projects failed:", error);
+    throw error;
   }
+};
 
-  return data as T;
-}
-
-export const getProjects = async (): Promise<Project[]> => {
-  const response = await fetch(`${API_URL}/api/projects`);
+export const getProjectById = async ( id: ProjectId ) => {
+  try {
+    const response = await fetch(`${API_URL}/api/projects/${id}`);
     
-  const result = await parseResponse<
-    Project[] | ApiResponse<Project[]>  
-  >(response);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
 
-  return Array.isArray(result) ? result : result.data;
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Fetch Project failed:", error);
+    throw error;
+  }
 };
 
-export const getProjectById = async (id: ProjectId): Promise<Project> => {
-  const response = await fetch(`${API_URL}/api/projects/${id}`);
+export const createProject = async ( newProject: CreateProjectInput ) => {
+  try {
+    const response = await fetch(`${API_URL}/api/projects`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      credentials: "include",
+      body: JSON.stringify(newProject),
+    });
   
-  const result = await parseResponse<
-    Project | ApiResponse<Project>  
-  >(response);
+    const data = await response.json().catch(() => null);
 
-  return "data" in result ? result.data : result;
+    if (!response.ok) {
+      console.error("Validation errors:", data?.errors);
+      throw new Error(
+        data?.errors
+          ?.map(
+            (issue: { field: string; message: string }) =>
+              `${issue.field}: ${issue.message}`
+          )
+          .join(", ") || data?.message || `HTTP error! Status: ${response.status}`
+      );
+    }
+
+    return data;
+  } catch (error) {
+    console.error("Fetch Project failed:", error);
+    throw error;
+  }
 };
-
-export const createProject = async (newProject: CreateProjectInput): Promise<Project | ApiResponse<Project>> => {
-  const response = await fetch(`${API_URL}/api/projects`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    }, 
-    credentials: "include",
-    body: JSON.stringify(newProject)
-  });
-
-  return parseResponse<Project | ApiResponse<Project>>(response);    
-}
 
 export const updateProject = async (
   id: ProjectId,
-  projectData: UpdateProjectInput
-): Promise<Project | ApiResponse<Project>> => {
-  const response = await fetch(
-    `${API_URL}/api/projects/${id}`,
-    {
+  projectData: UpdateProjectInput 
+) => {
+  try {
+    const response = await fetch(`${API_URL}/api/projects/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       credentials: "include",
       body: JSON.stringify(projectData),
-    }
-  );
+    });
 
-  return parseResponse<Project | ApiResponse<Project>>(response);
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Fetch Project failed:", error);
+    throw error;
+  }
 };
 
-export const deleteProject = async (
-  id: ProjectId
-): Promise<void | ApiResponse<null>> => {
-  const response = await fetch(
-    `${API_URL}/api/projects/${id}`,
-    {
+export const deleteProject = async ( id: ProjectId ) => {
+  try {
+    const response = await fetch(`${API_URL}/api/projects/${id}`, {
       method: "DELETE",
       credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-  );
 
-  if (response.status === 204) {
-    return;
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Fetch Project failed:", error);
+    throw error;
   }
-
-  return parseResponse<ApiResponse<null>>(response);
 };

@@ -1,25 +1,7 @@
 
+import { Status, STATUS_CONFIG } from "@/lib/types/projects";
 import { cn } from "@/lib/utils";
 
-export const STATUS_CONFIG = {
-  progress: {
-    label: "Progress",
-    className: "bg-amber-50 text-amber-700 border-amber-200",
-    dot: "bg-amber-500",
-  },
-  done: {
-    label: "Done ✓",
-    className: "bg-violet-50 text-violet-700 border-violet-200",
-    dot: "bg-violet-500",
-  },
-  waited: {
-    label: "Waited",
-    className: "bg-zinc-100 text-zinc-500 border-zinc-200",
-    dot: "bg-zinc-400",
-  },
-} as const;
-
-export type Status = keyof typeof STATUS_CONFIG;
 
 type StatusBadgeProps = {
   status: Status;
