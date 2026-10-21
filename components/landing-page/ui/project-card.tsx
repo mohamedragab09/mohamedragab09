@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
-import { FaGithub } from "react-icons/fa";
 import { Project } from "@/lib/types/projects";
 
 
@@ -65,20 +64,7 @@ export default function ProjectCard({ project }: ProjectProp) {
           <ExternalLink size={14} />
           Live Demo
         </Link>
-
-        {project.github && (
-          <Link
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 text-sm font-semibold text-accent transition-opacity hover:opacity-80"
-          >
-            <FaGithub size={14} />
-            GitHub
-          </Link>
-        )}
       </div>
-
     </article>
   );
 }
