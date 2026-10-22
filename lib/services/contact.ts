@@ -1,7 +1,7 @@
+
 import { ContactForm } from "../types/contact";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
-
 
 interface ContactResponse {
   message: string;
@@ -23,4 +23,24 @@ export const submitForm = async (form: ContactForm): Promise<ContactResponse> =>
   }
 
   return data;
+};
+
+
+export const deleteMessage = async ( id: number ) => {
+  try {
+    const response = await fetch(`${API_URL}/api/contact/messages/${id}`, {
+      method: "DELETE",
+      credentials: "include",
+    });
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error("Delete message failed:", error);
+    throw error;
+  }
 };

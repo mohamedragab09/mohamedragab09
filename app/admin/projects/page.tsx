@@ -1,4 +1,4 @@
-import DataTable from "@/components/admin/dashboard-components/data-table";
+import { ProjectsDT } from "@/components/admin/dashboard-components/pages/projects-data-table";
 import { getProjects } from "@/lib/services/projects";
 
 export default async function Page() {
@@ -7,7 +7,7 @@ export default async function Page() {
     return (
         <div className="flex flex-col items-center justify-center min-h-screen py-2">
             {projects.length > 0 ? (
-                <DataTable projects={projects} />
+                <ProjectsDT projects={projects} />
             ) : (
                 <p>No projects found.</p>
             )}
