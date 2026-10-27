@@ -40,13 +40,13 @@ const data = {
       href: "/admin/projects"
     },
     {
-      title: "Orders",
+      title: "Messages",
       url: "#",
       icon: (
         <ListIcon
         />
       ),
-      href: "/admin/orders"
+      href: "/admin/messages"
     },
     {
       title: "Analytics",
