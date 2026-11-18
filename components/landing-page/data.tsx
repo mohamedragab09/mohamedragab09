@@ -131,6 +131,6 @@ export const SKILL_GROUPS = [
 
 export const SOCIAL_ITEMS = [
   { label: 'CV_Drive',  icon: <FaGoogleDrive size={20} />, href: 'https://drive.google.com/file/d/1OiJOcmBnnf7WlKAtj3ObMvkH-g-dus4F/view?usp=drive_link' },
-  { label: 'Github',    icon: <FaGithub size={20} />,      href: 'https://github.com/MuhammedAhmed09' },
+  { label: 'Github',    icon: <FaGithub size={20} />,      href: 'https://github.com/mohamedragab09' },
   { label: 'LinkedIn',  icon: <FaLinkedin size={20} />,    href: 'https://www.linkedin.com/in/muhammad-ahmad-a29078307/' },
 ];

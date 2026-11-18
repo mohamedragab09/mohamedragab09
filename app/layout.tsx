@@ -45,7 +45,7 @@ export default function RootLayout({
       <body>
         <TooltipProvider>
           {children}
-          </TooltipProvider>
+        </TooltipProvider>
       </body>
     </html>
   )
