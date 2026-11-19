@@ -1,4 +1,5 @@
 import { Geist, Geist_Mono, Roboto_Slab } from "next/font/google"
+import { GoogleTagManager } from "@next/third-parties/google";
 
 import "./globals.css"
 import { cn } from "@/lib/utils";
@@ -47,6 +48,10 @@ export default function RootLayout({
           {children}
         </TooltipProvider>
       </body>
+
+      <GoogleTagManager
+        gtmId={process.env.NEXT_PUBLIC_GTM_ID!}
+      />
     </html>
   )
 }
